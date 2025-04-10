@@ -139,8 +139,8 @@ function checkSolution() {
   }
 }
 
-// Optional: Flip board functionality
+// Flip board functionality: toggles the "flipped" class on the inner container
 function flipBoard() {
-  const flipCard = document.getElementById("flip-card");
-  flipCard.classList.toggle("flipped");
+  const flipInner = document.getElementById("flip-card-inner");
+  flipInner.classList.toggle("flipped");
 }
