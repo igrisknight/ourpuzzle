@@ -40,3 +40,28 @@ body {
     object-fit: cover;
     border: 0.5px solid orangered;
 }
+
+/* Visual indicator for selected piece on mobile */
+.selected {
+    border: 3px solid limegreen;
+}
+
+/* Responsive adjustments for mobile screens */
+@media (max-width: 600px) {
+    #board {
+        width: 95vmin;
+        height: 95vmin;
+    }
+
+    #board img {
+        border-width: 1px;
+    }
+
+    #pieces {
+        gap: 3px;
+    }
+
+    #pieces img {
+        width: 30%;
+    }
+}
