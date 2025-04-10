@@ -14,30 +14,60 @@ body {
     gap: 20px;
   }
   
-  /* Flip Board and 3D Flip Card Styles */
+  /* Flip Board Container with fixed dimensions */
   #boardContainer {
     perspective: 1000px;
     margin: 0 auto;
+    width: 90vmin;
+    height: 90vmin;
+    max-width: 400px;
+    max-height: 400px;
+    position: relative;
   }
   
+  /* Flip Card - fills the board container */
   #flip-card {
     width: 100%;
+    height: 100%;
     transition: transform 0.8s;
     transform-style: preserve-3d;
     position: relative;
   }
+  
   #flip-card.flipped {
     transform: rotateY(180deg);
   }
+  
+  /* The inner faces of the flip card */
   #flip-card-inner > div {
     position: absolute;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
   }
+  
+  /* Front face containing the board */
   #flip-front {
     z-index: 2;
   }
+  #flip-front #board {
+    width: 100%;
+    height: 100%;
+    border: 2px solid purple;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    box-sizing: border-box;
+    margin: 0;
+  }
+  #flip-front #board img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 0.5px solid orangered;
+  }
+  
+  /* Back face (hidden until flip) */
   #flip-back {
     background-color: #f8f8f8;
     color: black;
@@ -48,38 +78,6 @@ body {
   }
   #flip-back h2 {
     font-size: 24px;
-  }
-  
-  /* Puzzle Board */
-  #board {
-    width: 90vmin;
-    height: 90vmin;
-    max-width: 400px;
-    max-height: 400px;
-    border: 2px solid purple;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-  }
-  #board img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border: 0.5px solid orangered;
-  }
-  
-  /* Puzzle Pieces */
-  #pieces {
-    width: 90vmin;
-    max-width: 400px;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 5px;
-  }
-  #pieces img {
-    width: 100%;
-    object-fit: cover;
-    border: 0.5px solid orangered;
   }
   
   /* Flip Button */
@@ -95,6 +93,20 @@ body {
     cursor: pointer;
   }
   
+  /* Puzzle Pieces Container */
+  #pieces {
+    width: 90vmin;
+    max-width: 400px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+  }
+  #pieces img {
+    width: 100%;
+    object-fit: cover;
+    border: 0.5px solid orangered;
+  }
+  
   /* Visual Indicator for Selected Tile on Mobile */
   .selected {
     border: 3px solid limegreen;
@@ -102,11 +114,11 @@ body {
   
   /* Responsive Adjustments */
   @media (max-width: 600px) {
-    #board {
+    #boardContainer {
       width: 95vmin;
       height: 95vmin;
     }
-    #board img {
+    #flip-front #board img {
       border-width: 1px;
     }
     #pieces {

@@ -11,7 +11,7 @@ var mobileSelected = null; // For mobile tap-to-swap
 var isMobile = ('ontouchstart' in window || window.innerWidth < 768);
 
 window.onload = function() {
-  // Initialize the 5x5 board
+  // Initialize the 5x5 board inside #flip-front #board
   for (let r = 0; r < rows; r++) {
     for (let c = 0; c < columns; c++) {
       let tile = document.createElement("img");
@@ -28,7 +28,7 @@ window.onload = function() {
       } else {
         tile.addEventListener("click", mobileSelect);
       }
-      document.getElementById("board").append(tile);
+      document.querySelector("#flip-front #board").append(tile);
     }
   }
 
@@ -45,7 +45,7 @@ window.onload = function() {
     pieces[j] = tmp;
   }
 
-  // Initialize puzzle pieces
+  // Initialize puzzle pieces in the #pieces container
   for (let i = 0; i < pieces.length; i++) {
     let tile = document.createElement("img");
     tile.src = "./images/" + pieces[i] + ".jpg";
@@ -127,7 +127,7 @@ function mobileSelect() {
 
 // Check if the puzzle board is solved
 function checkSolution() {
-  let boardImages = document.querySelectorAll("#board img");
+  let boardImages = document.querySelectorAll("#flip-front #board img");
   let allPlaced = true;
   boardImages.forEach(function(img) {
     if (img.src.includes("blank")) {
