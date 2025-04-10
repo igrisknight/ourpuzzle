@@ -1,64 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Our Puzzle</title>
-  <link rel="stylesheet" href="puzzle.css">
+  <link rel="stylesheet" href="puzzle.css" />
   <script defer src="puzzle.js"></script>
-  <style>
-    /* Flip board styles */
-    #flipButton {
-      display: none;
-      margin: 20px auto;
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: purple;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    #boardContainer {
-      perspective: 1000px;
-      margin: 20px auto;
-      width: fit-content;
-    }
-    #flip-card {
-      width: 100%;
-      transition: transform 0.8s;
-      transform-style: preserve-3d;
-      position: relative;
-    }
-    #flip-card.flipped {
-      transform: rotateY(180deg);
-    }
-    #flip-card-inner > div {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-    }
-    #flip-front {
-      z-index: 2;
-    }
-    #flip-back {
-      background-color: #f8f8f8;
-      color: black;
-      transform: rotateY(180deg);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    #flip-back h2 {
-      font-size: 24px;
-    }
-  </style>
 </head>
 <body>
   <div class="container">
     <h2>Turns: <span id="turns">0</span></h2>
-  
+
     <!-- Flip Board Container -->
     <div id="boardContainer">
       <div id="flip-card">
@@ -72,9 +24,9 @@
         </div>
       </div>
     </div>
-  
+
     <button id="flipButton" onclick="flipBoard()">Flip Board</button>
-  
+
     <!-- Puzzle Pieces -->
     <div id="pieces"></div>
   </div>
