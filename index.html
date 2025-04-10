@@ -56,24 +56,27 @@
   </style>
 </head>
 <body>
-  <h2>Turns: <span id="turns">0</span></h2>
-
-  <!-- Flip Board Container -->
-  <div id="boardContainer">
-    <div id="flip-card">
-      <div id="flip-card-inner">
-        <div id="flip-front">
-          <div id="board"></div>
-        </div>
-        <div id="flip-back">
-          <h2>You solved it! 🎉</h2>
+  <div class="container">
+    <h2>Turns: <span id="turns">0</span></h2>
+  
+    <!-- Flip Board Container -->
+    <div id="boardContainer">
+      <div id="flip-card">
+        <div id="flip-card-inner">
+          <div id="flip-front">
+            <div id="board"></div>
+          </div>
+          <div id="flip-back">
+            <h2>You solved it! 🎉</h2>
+          </div>
         </div>
       </div>
     </div>
+  
+    <button id="flipButton" onclick="flipBoard()">Flip Board</button>
+  
+    <!-- Puzzle Pieces -->
+    <div id="pieces"></div>
   </div>
-
-  <button id="flipButton" onclick="flipBoard()">Flip Board</button>
-
-  <div id="pieces"></div>
 </body>
 </html>

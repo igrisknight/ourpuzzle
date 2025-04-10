@@ -87,7 +87,7 @@ function dragDrop() {
 }
 
 function dragEnd() {
-    // Prevent blank from being dragged (like original logic)
+    // Prevent blank from being dragged
     if (currTile.src.includes("blank")) return;
     
     let currImg = currTile.src;
@@ -104,7 +104,6 @@ function dragEnd() {
 
 // ----- Mobile Tap-to-Swap Functionality -----
 function mobileSelect() {
-    // Prevent selecting blank images as source pieces.
     if (!mobileSelected && this.src.includes("blank")) return;
     
     // If no tile is currently selected, mark this tile as selected
@@ -148,7 +147,7 @@ function checkSolution() {
     }
 }
 
-// Optional: Flip board function (from original HTML button)
+// Optional: Flip board function
 function flipBoard() {
     const flipCard = document.getElementById("flip-card");
     flipCard.classList.toggle("flipped");
